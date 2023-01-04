@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./Reservations.module.css";
 export default function Reservations() {
   const [quantity, setQuantity] = useState(1);
