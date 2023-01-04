@@ -1,0 +1,146 @@
+.team{
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 500px;
+    width:60px;
+}
+
+.containerButtons{
+   /* background-color: red;*/
+    width: 500px;
+    height: 80px;
+    margin-left: 500px;
+    margin-top: 15px;
+}
+.searchButton{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(30, 13, 179);
+    border-radius: 5px;
+    margin-left: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.pageTitle{
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 600px;
+}
+
+.teamsList{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    width: 200px;
+    background-color: black;
+}
+
+.allmatches{
+    width: 1000px;
+    height: 100vh;
+    margin-left: 200px;
+}
+
+.match{
+    background-color: rgba(0, 0, 0);
+    width: 1100px;
+    height: 100px;
+    margin-left: -50px;
+    margin-bottom: 50px;
+}
+
+.teams{
+    width: 300px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.location{
+    width: 300px;
+    margin-top: -25px;
+    font-size: 20px;
+    margin-left: 350px;
+    color: white;
+    font-weight: bold;
+}
+
+.date{
+    width: 250px;
+    margin-top: -25px;
+    font-size: 20px;
+    margin-left: 700px;
+    color: white;
+    font-weight: bold;
+}
+
+.bookButtonDiv{
+    width: 170px;
+    margin-top: -30px;
+    font-size: 20px;
+    margin-left: 930px;
+}
+
+.bookButton{
+    width: 150px;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    background-color: rgb(15, 202, 15);
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.bookButton:hover{
+    transition-duration: 0.4s;
+    width: 150px;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    background-color: rgb(5, 158, 5);
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.roundDetails{
+    margin-top: 20px;
+    height: 45px;
+    background-color: rgb(29, 28, 28);
+}
+
+.tour{
+    color: white;
+    width: 300px;
+    height: 45px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.matchNumber{
+    color: white;
+    width: 200px;
+    height: 45px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 450px;
+    margin-top: -44px;
+}
+
+.group{
+    color: white;
+    width: 200px;
+    height: 45px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 750px;
+    margin-top: -44px;
+}
