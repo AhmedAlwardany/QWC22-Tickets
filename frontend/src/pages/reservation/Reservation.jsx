@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import styles from "./Reservations.module.css";
 export default function Reservations() {
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("");
+  const location = useLocation();
   const handleReserve = () => {
     console.log(quantity, category);
   };
+  const match = location.state.match;
+
   return (
     <>
       <h1>Confirm purchase</h1>
@@ -13,10 +17,13 @@ export default function Reservations() {
         <h2>Reservation details</h2>
         <div className={styles["reservation-body"]}>
           <p>
-            <strong>Match:</strong> Spain vs Costa Rica
+            <strong>Match:</strong> {match.homeTeam} vs {match.awayTeam}
           </p>
           <p>
-            <strong>Time:</strong> 20:00
+            <strong>Time:</strong>{" "}
+            {match.dateUtc.split("T")[0] +
+              " " +
+              match.dateUtc.split("T")[1].split(".")[0]}
           </p>
           <p>
             <strong>Category: </strong>
@@ -25,9 +32,14 @@ export default function Reservations() {
             <option value="" defaultValue="" hidden>
               Select
             </option>
-            <option value="Category 1">Category 1</option>
-            <option value="Category 2">Category 2</option>
-            <option value="Category 3">Category 3</option>
+            {Object.keys(match.availability).map((category) => (
+              <option value={category}>
+                {category[0].toUpperCase() +
+                  category.slice(1, category.length - 1) +
+                  " " +
+                  category[category.length - 1]}
+              </option>
+            ))}
           </select>
           <p>
             <strong>Quantity:</strong>
@@ -50,7 +62,14 @@ export default function Reservations() {
         </div>
         <div className={styles["reservation-footer"]}>
           <h4>
-            <strong>Total:</strong> $150
+            <strong>Total:</strong>{" "}
+            {Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD",
+            }).format(
+              quantity *
+                category.price
+            )}
           </h4>
         </div>
       </div>
