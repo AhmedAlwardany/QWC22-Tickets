@@ -1,81 +1,33 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
-import styles from "./Reservations.module.css";
-export default function Reservations() {
-  const [quantity, setQuantity] = useState(1);
-  const [category, setCategory] = useState("");
-  const location = useLocation();
-  const handleReserve = () => {
-    console.log(quantity, category);
-  };
-  const match = location.state.match;
+import Navbar from "../../components/navbar/Navbar";
+import "./reservation.css";
+import {useLocation} from 'react-router-dom';
+import React, {useState } from "react";
 
-  return (
-    <>
-      <h1>Confirm purchase</h1>
-      <div className={styles.reservation}>
-        <h2>Reservation details</h2>
-        <div className={styles["reservation-body"]}>
-          <p>
-            <strong>Match:</strong> {match.homeTeam} vs {match.awayTeam}
-          </p>
-          <p>
-            <strong>Time:</strong>{" "}
-            {match.dateUtc.split("T")[0] +
-              " " +
-              match.dateUtc.split("T")[1].split(".")[0]}
-          </p>
-          <p>
-            <strong>Category: </strong>
-          </p>
-          <select name="category" onChange={(e) => setCategory(e.target.value)}>
-            <option value="" defaultValue="" hidden>
-              Select
-            </option>
-            {Object.keys(match.availability).map((category) => (
-              <option value={category}>
-                {category[0].toUpperCase() +
-                  category.slice(1, category.length - 1) +
-                  " " +
-                  category[category.length - 1]}
-              </option>
-            ))}
-          </select>
-          <p>
-            <strong>Quantity:</strong>
-          </p>
+const Reservation = () => {
+   const [quantity, setQuantity] = useState("");
+   const [category, setCategory] = useState("");
+   const location = useLocation();
+    return(
+        <div>
+          <Navbar/>
+          <h1>Confirm Purchase</h1>
+          <h2>Match: {location.state.ticketData.awayTeam} VS {location.state.ticketData.homeTeam}</h2>
+          <h3>Category: <select className="list" onChange={(e)=>setCategory(e.target.value)}>
+                  <option value="none" selected disabled hidden>Select Category</option>
+                    <option value="1">Category 1</option>
+                    <option value="2">Category 2</option>
+                    <option value="3">Category 3</option>
+                  </select></h3>
+          <h3>Quantity: <select className="list" onChange={(e)=>setQuantity(e.target.value)}>
+                  <option value="none" selected disabled hidden>Select Quantity</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select></h3>
+            <h3>Price: </h3>      
+            <button className="purchase">Purchase</button>
         </div>
-        <div className={styles["reservation-quantity"]}>
-          <button
-            className={styles["btn-quantity"]}
-            onClick={() => setQuantity(quantity - 1 ? quantity - 1 : 1)}
-          >
-            -
-          </button>
-          <p>{quantity}</p>
-          <button
-            className={styles["btn-quantity"]}
-            onClick={() => setQuantity(quantity + 1)}
-          >
-            +
-          </button>
-        </div>
-        <div className={styles["reservation-footer"]}>
-          <h4>
-            <strong>Total:</strong>{" "}
-            {Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-            }).format(
-              quantity *
-                category.price
-            )}
-          </h4>
-        </div>
-      </div>
-      <button className={styles["btn-primary"]} onClick={handleReserve}>
-        Buy Now
-      </button>
-    </>
-  );
+    )
 }
+
+export default Reservation;
