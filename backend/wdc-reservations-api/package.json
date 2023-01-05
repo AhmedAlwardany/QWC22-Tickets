@@ -1,0 +1,25 @@
+{
+  "name": "sp-reservations-api",
+  "version": "1.0.0",
+  "description": "GIU Software Project Reservations API & Kafka Producer",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon api/index.js",
+    "load": "k6 run tests/k6/reservation/reservation.spec.js"
+  },
+  "dependencies": {
+    "@hapi/joi": "17.1.1",
+    "dotenv": "^16.0.3",
+    "express": "4.18.2",
+    "kafkajs": "2.2.3",
+    "knex": "0.95.14",
+    "mongoose": "^6.8.1",
+    "pg": "8.7.1",
+    "stripe": "^11.4.0",
+    "uuid": "8.3.2"
+  },
+  "devDependencies": {
+    "k6": "0.0.0",
+    "nodemon": "2.0.20"
+  }
+}
