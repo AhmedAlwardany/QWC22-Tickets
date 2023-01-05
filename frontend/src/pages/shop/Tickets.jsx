@@ -1,11 +1,17 @@
 import { useState} from "react";
 import useFetch from "../../hooks/useFetch";
 import Navbar from "../../components/navbar/Navbar";
-import "./home.css";
+import "./ticket.css";
+import {Link, useNavigate} from 'react-router-dom';
 
-const Tickets = () => {
+const Tickets = (props) => {
+  const navigate = useNavigate();
   const [val,setVal] = useState('')
   const {data,loading} = useFetch(`http://localhost:8800/teams/${val}`)
+  const handleClick=(i)=>{
+    const ticketData = data[i];
+    navigate('/Reservation',{state:{ticketData}});
+      }
     return(
         <div>
           <Navbar/>
@@ -47,12 +53,12 @@ const Tickets = () => {
         "Loading please wait"
       ) : (
         <><div className="allmatches">
-          {data.map(({awayTeam, homeTeam, matchNumber, group, dateUtc, location}) => (
+          {data.map(({awayTeam, homeTeam, matchNumber, group, dateUtc, location},i) => (
         <div className="match">
           <div className="teams">{awayTeam} VS {homeTeam}</div>
             <div className="location">{location}</div>
             <div className="date">{dateUtc}</div>
-            <div className="bookButtonDiv"><button className="bookButton">Book Now</button></div>
+            <div className="bookButtonDiv"><button className="bookButton" onClick={()=>{handleClick(i)}}>Book Now</button></div>
             <div className="roundDetails">
               <div className="tour">Tournament: World Cup 2022</div>
               <div className="matchNumber">Match No.{matchNumber}</div>

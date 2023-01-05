@@ -1,0 +1,63 @@
+h1{
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 60px;
+    margin-left: -50px;
+}
+
+h2{
+    font-size: 25px;
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 50px;
+    margin-left: 480px;
+    width: 400px;
+}
+
+h3{
+    font-size: 20px;
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 30px;
+    width: 120px;
+    margin-left: 600px;
+}
+
+.list{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    width: 200px;
+    background-color: black;
+    margin-left: -40px;
+    margin-top: 20px;
+}
+
+.purchase{
+    width: 150px;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    background-color: rgb(233, 12, 196);
+    border-radius: 5px;
+    margin-left: 590px;
+    margin-top: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.purchase:hover{
+    transition-duration: 0.4s;
+    width: 150px;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    background-color: rgb(90, 4, 68);
+    border-radius: 5px;
+    margin-left: 590px;
+    margin-top: 50px;
+    border: none;
+    cursor: pointer;
+}
