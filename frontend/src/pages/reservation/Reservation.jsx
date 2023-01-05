@@ -24,7 +24,7 @@ const Reservation = () => {
                     <option value="2">2</option>
                     <option value="3">3</option>
                   </select></h3>
-            <h3>Price: {location.state.ticketData.availability.category1.price}</h3>      
+            <h3>Price: </h3>      
             <button className="purchase">Purchase</button>
         </div>
     )
