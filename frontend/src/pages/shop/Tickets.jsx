@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import Navbar from "../../components/navbar/Navbar";
 import "./ticket.css";
