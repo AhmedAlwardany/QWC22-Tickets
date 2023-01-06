@@ -7,5 +7,4 @@ const ticketReservationSchema = new mongoose.Schema({
     quantity: Number,
     price: Number,
 })
-const TicketReservation = mongoose.model('TicketReservation', ticketReservationSchema);
-module.exports = TicketReservation;
+module.exports = ticketReservationSchema;

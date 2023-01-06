@@ -7,8 +7,7 @@ const { sendKafkaMessage } = require('../connectors/kafka');
 const { validateTicketReservationDto } = require('../validation/reservation');
 const messagesType = require('../constants/messages');
 const { default: mongoose } = require('mongoose');
-const { TicketReservation } = require('../db/model/TicketReservation');
-
+const  TicketReservation  = require('../db/model/TicketReservation');
 module.exports = (app) => {
   // HTTP endpoint to test health performance of service
   app.get('/api/v1/health', async (req, res) => {
@@ -72,7 +71,9 @@ module.exports = (app) => {
       // Persist ticket sale in database with a generated reference id so user can lookup ticket
       const ticketReservation = { id: v4(), ...req.body };
       // const reservation = await db('reservations').insert(ticketReservation).returning('*');
-      mongoConnection();
+      await mongoConnection();
+      const TicketReservation = mongoose.model('TicketReservation', ticketReservationSchema);
+
       await TicketReservation.create(ticketReservation);
       // Return success response to client
       return res.json({

@@ -8,7 +8,9 @@ const { sendKafkaMessage } = require('../connectors/kafka');
 const { validateTicketReservationDto } = require('../validation/reservation');
 const messagesType = require('../constants/messages');
 const { startKafkaProducer } = require('../connectors/kafka');
-const { TicketReservation } = require('../db/model/TicketReservation');
+const ticketReservationSchema = require('../db/model/TicketReservation');
+const mongoose = require('mongoose');
+const mongoConnection = require('../connectors/mongo');
 // Config setup to parse JSON payloads from HTTP POST request body
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -83,6 +85,8 @@ app.post('/api/reservation', async (req, res) => {
       price: req.body.tickets.price,
     };
     // await db('reservations').insert(ticketReservation);
+    await mongoConnection()
+    const TicketReservation = mongoose.model('TicketReservation', ticketReservationSchema);
     await TicketReservation.create(ticketReservation);
 
     // Return success response to client
